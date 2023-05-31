@@ -5,17 +5,17 @@
 <!-- Filter control section-->
 <div class="filters">
   <div>
-    <label for="priorityFilter">Filtrar por Prioridade:</label>
+    <label for="priorityFilter">Filter by priority:</label>
     <select id="priorityFilter" [(ngModel)]="priorityFilter">
-      <option value="">Todas</option>
-      <option value="high">Alta</option>
-      <option value="medium">Média</option>
-      <option value="low">Baixa</option>
+      <option value="">All</option>
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
     </select>
   </div>
 
   <div>
-    <label for="descriptionFilter">Filtrar por Descrição:</label>
+    <label for="descriptionFilter">Filter by description:</label>
     <input id="descriptionFilter" type="text" [(ngModel)]="descriptionFilter">
   </div>
 </div>
@@ -41,14 +41,14 @@
 
 <div class="modal" *ngIf="isModalOpen">
   <div class="modal-content">
-    <h2 class="modal-title">Adicionar Todo</h2>
+    <h2 class="modal-title">Add Todo</h2>
 
     <form (submit)="addTodo($event)">
       <label for="description">Description:</label>
       <input id="description" type="text" required name="description" [(ngModel)]="newTodo.description" required>
       <label for="dueDate">Due Date</label>
       <input id="dueDate" type="date" required name="dueDate" [(ngModel)]="newTodo.dueDate" required>
-      <label for="priority">Prioridade:</label>
+      <label for="priority">Priority:</label>
       <select id="priority" name="priority" required [(ngModel)]="newTodo.priority" required>
         <option value="" selected disabled hidden>Choose a priority</option>
         <option value="high">High</option>
