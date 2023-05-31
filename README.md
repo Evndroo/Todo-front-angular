@@ -1,6 +1,19 @@
 # TodoListTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+It is a application that shows a TODO list consumed from a [JSON Server backend API](https://github.com/Evndroo/Todo-json-server).
+
+## How to run
+
+1. Follow the backend How to run instructions [here](https://github.com/Evndroo/Todo-json-server).
+
+2. Clone this repository.
+
+3. Run `npm install` to install the dependencies.
+
+4. Run `npm start` to start the application.
+
+5. Open your browser and navigate to `http://localhost:4200/`.
 
 ## Development server
 
