@@ -1,35 +1,47 @@
 <div class="title-block">
-  <h1>Lista de TODOs</h1>
-  <button (click)="openModal()">Adicionar Todo</button>
+  <h1>TODOs</h1>
+  <button (click)="openModal()">Add</button>
 </div>
 <!-- Filter control section-->
-<div>
-  <label for="priorityFilter">Filtrar por Prioridade:</label>
-  <select id="priorityFilter" [(ngModel)]="priorityFilter">
-    <option value="">Todas</option>
-    <option value="high">Alta</option>
-    <option value="medium">Média</option>
-    <option value="low">Baixa</option>
-  </select>
+<div class="filters">
+  <div>
+    <label for="priorityFilter">Filtrar por Prioridade:</label>
+    <select id="priorityFilter" [(ngModel)]="priorityFilter">
+      <option value="">Todas</option>
+      <option value="high">Alta</option>
+      <option value="medium">Média</option>
+      <option value="low">Baixa</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="descriptionFilter">Filtrar por Descrição:</label>
+    <input id="descriptionFilter" type="text" [(ngModel)]="descriptionFilter">
+  </div>
 </div>
 
-<div>
-  <label for="descriptionFilter">Filtrar por Descrição:</label>
-  <input id="descriptionFilter" type="text" [(ngModel)]="descriptionFilter">
+<!-- List-->
+<div class="card-group">
+  <div class="card" *ngFor="let todo of filteredTodos">
+    <div class="card-header">
+      {{ todo.description }}
+    </div>
+    <div class="card-content">
+      <p>Due date: {{ todo.dueDate | date }}</p>
+      <p>Priority: {{ todo.priority }}</p>
+    </div>
+    <div class="card-actions">
+      <button class="delete-button" (click)="deleteTodoById(todo.id)">
+        <i class="fa fa-trash"></i>
+      </button>
+    </div>
+  </div>
 </div>
-
-<!-- Filtered todo list-->
-<ul *ngIf="filteredTodos">
-  <li *ngFor="let todo of filteredTodos">
-    {{ todo.description }} - Due Date: {{ todo.dueDate }} - Priority: {{ todo.priority }} - <a
-      (click)="deleteTodoById(todo.id)">Delete</a>
-  </li>
-</ul>
 
 
 <div class="modal" *ngIf="isModalOpen">
   <div class="modal-content">
-    <h2>Adicionar Todo</h2>
+    <h2 class="modal-title">Adicionar Todo</h2>
 
     <form (submit)="addTodo($event)">
       <label for="description">Description:</label>
@@ -43,8 +55,8 @@
         <option value="medium">Medium</option>
         <option value="low">Low</option>
       </select>
-      <button type="submit">Add</button>
-      <button type="button" (click)="closeModal()">Cancel</button>
+      <button type="submit" class="submit-modal-button">Add</button>
+      <button type="button" class="close-modal-button" (click)="closeModal()">Cancel</button>
     </form>
   </div>
 </div>
