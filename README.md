@@ -3,6 +3,13 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
 It is a application that shows a TODO list consumed from a [JSON Server backend API](https://github.com/Evndroo/Todo-json-server).
 
+## Thinks I would do if I had more time:
+
+- [ ] Add a TypeScript Alias for the `src/app` folder.
+- [ ] Create automated tests.
+- [ ] Add the edit todo functionality.
+- [ ] Migrate to a monorepo with turboRepo or another tool and add scripts to run the front and the backend simultaneously.
+
 ## How to run
 
 1. Follow the backend How to run instructions [here](https://github.com/Evndroo/Todo-json-server).
